@@ -1,20 +1,139 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Audio Processor</title>
 <link rel="manifest" href="manifest.json">
 <link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<div class="card">
-<h1>Audio Processor</h1>
+<div class="sidebar">
+    <h2>Audio Processor</h2>
 
-<input type="range" min="0" max="48">
-
-<div class="vu">
-<div id="bar"></div>
+    <button>Home</button>
+    <button>EQ</button>
+    <button>Inputs</button>
+    <button>VU Meter</button>
+    <button>LED Effects</button>
+    <button>Settings</button>
 </div>
+
+<div class="main">
+
+    <div class="topbar">
+        <div class="status">
+            WiFi Connected
+        </div>
+
+        <div class="actions">
+            <button class="blue">PWA Install</button>
+            <button class="purple">OTA Update</button>
+            <button class="orange">Restart</button>
+        </div>
+    </div>
+
+    <div class="grid">
+
+        <div class="card knob-card">
+            <h3>Master Volume</h3>
+
+            <div class="knob-wrap">
+                <div class="knob blue-knob" id="volumeKnob">
+                    <div class="pointer"></div>
+                </div>
+            </div>
+
+            <div class="value" id="volumeValue">-20 dB</div>
+
+            <div class="range-text">0 to -48 dB</div>
+
+            <div class="button-row">
+                <button class="danger">Mute</button>
+                <button class="secondary">Reset</button>
+            </div>
+        </div>
+
+        <div class="card small-knob-card">
+            <h3>Bass</h3>
+
+            <div class="knob small green-knob" id="bassKnob">
+                <div class="pointer"></div>
+            </div>
+
+            <div class="value green" id="bassValue">+3 dB</div>
+
+            <div class="range-text">(-7 to +7 dB)</div>
+        </div>
+
+        <div class="card small-knob-card">
+            <h3>Mid</h3>
+
+            <div class="knob small orange-knob" id="midKnob">
+                <div class="pointer"></div>
+            </div>
+
+            <div class="value orange" id="midValue">-2 dB</div>
+
+            <div class="range-text">(-7 to +7 dB)</div>
+        </div>
+
+        <div class="card small-knob-card">
+            <h3>Treble</h3>
+
+            <div class="knob small purple-knob" id="trebleKnob">
+                <div class="pointer"></div>
+            </div>
+
+            <div class="value purple" id="trebleValue">+4 dB</div>
+
+            <div class="range-text">(-7 to +7 dB)</div>
+        </div>
+
+        <div class="card balance-card">
+            <h3>Balance</h3>
+
+            <input type="range" min="-4" max="4" id="balance">
+
+            <div class="balance-text">
+                L ↔ R
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Input Selection</h3>
+
+            <div class="inputs">
+                <button onclick="setInput(1)">1</button>
+                <button onclick="setInput(2)">2</button>
+                <button onclick="setInput(3)">3</button>
+                <button onclick="setInput(4)">4</button>
+            </div>
+        </div>
+
+        <div class="card vu-card">
+            <h3>VU Meter</h3>
+
+            <div class="vu">
+                <div id="bar"></div>
+            </div>
+        </div>
+
+        <div class="card led-card">
+            <h3>LED Effects</h3>
+
+            <select>
+                <option>Rainbow</option>
+                <option>Music Reactive</option>
+                <option>Blue</option>
+                <option>Red</option>
+            </select>
+        </div>
+
+    </div>
 
 </div>
 
